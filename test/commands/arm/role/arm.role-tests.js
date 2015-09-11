@@ -343,7 +343,7 @@ describe('arm', function () {
     });
 
     describe('update role definition', function() {
-      it('basic update should work', function(done) {
+      it.only('basic update should work', function(done) {
         var roleToCreate = createNewRoleObject();
 
         suite.execute('role create -r %s --json', JSON.stringify(roleToCreate), function(result) {
