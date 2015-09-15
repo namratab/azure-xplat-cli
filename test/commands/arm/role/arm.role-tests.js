@@ -343,7 +343,7 @@ describe('arm', function () {
     });
 
     describe('update role definition', function() {
-      it.only('basic update should work', function(done) {
+      it('basic update should work', function(done) {
         var roleToCreate = createNewRoleObject();
 
         suite.execute('role create -r %s --json', JSON.stringify(roleToCreate), function(result) {
@@ -386,7 +386,7 @@ describe('arm', function () {
 
         suite.execute('role set -r %s --json', JSON.stringify(roleToUpdate), function(updatedResult) {
           updatedResult.exitStatus.should.equal(1);
-          updatedResult.errorText.should.containEql("The role definition \'43367f6e-e106-480d-a448-2a393ea5eb21\' could not be found");
+          updatedResult.errorText.should.containEql("The specified role definition with ID \'43367f6e-e106-480d-a448-2a393ea5eb21\' does not exist");
 
           done();
         });
